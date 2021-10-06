@@ -37,18 +37,10 @@ while(totalEmployeeHours<=MAX_HOURS_IN_MONTH && totalWorkingDays<NUMBER_OF_WORKI
 }
 
 let employeeWage=calculateDailyWages(totalEmployeeHours)
+console.log("total days: "+totalWorkingDays+" Employee hours: "+totalEmployeeHours+" Employee wage: "+employeeWage);
 
-let dailyCounter=0;
-function mapDayWithWage(dailyWage)
-{
-    dailyCounter++;
-    return dailyCounter+" = "+dailyWage;
-}
-
-let mapDayWithWageArray=employeeWageArray.map(mapDayWithWage);
-console.log("Mapping day with Wage earned on that day");
-console.log(mapDayWithWageArray) 
 let totalEmployeeWage=0;
+//Calculating daily wage using for each
 function totalWagesUsingForEach(dailyWage)
 {
     totalEmployeeWage+=dailyWage
@@ -61,3 +53,21 @@ function totalWagesUsingReduce(totalWage,dailyWage)
     return totalWage+dailyWage;
 }
 console.log("Employee wage with reduce:"+employeeWageArray.reduce(totalWagesUsingReduce,0));
+
+let dailyCounter=0;
+function mapDayWithWage(dailyWage)
+{
+    dailyCounter++;
+    return dailyCounter+" = "+dailyWage;
+}
+
+let mapDayWithWageArray=employeeWageArray.map(mapDayWithWage);
+console.log("Mapping day with Wage earned on that day");
+console.log(mapDayWithWageArray)
+function fulltimeWage(dailyWage)
+{
+    return dailyWage.includes("160");
+}
+let fullDayWageArray=mapDayWithWageArray.filter(fulltimeWage);
+console.log("Daily wage filter when full time wage earned ")
+console.log(fullDayWageArray)
