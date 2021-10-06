@@ -46,3 +46,9 @@ function totalWagesUsingForEach(dailyWage)
 }
 employeeWageArray.forEach(totalWagesUsingForEach);
 console.log("total days: "+totalWorkingDays+" Employee hours: "+totalEmployeeHours+" Employee wage: "+totalEmployeeWage);
+
+function totalWagesUsingReduce(totalWage,dailyWage)
+{
+    return totalWage+dailyWage;
+}
+console.log("Employee wage with reduce:"+employeeWageArray.reduce(totalWagesUsingReduce,0));
