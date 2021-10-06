@@ -38,6 +38,16 @@ while(totalEmployeeHours<=MAX_HOURS_IN_MONTH && totalWorkingDays<NUMBER_OF_WORKI
 
 let employeeWage=calculateDailyWages(totalEmployeeHours)
 
+let dailyCounter=0;
+function mapDayWithWage(dailyWage)
+{
+    dailyCounter++;
+    return dailyCounter+" = "+dailyWage;
+}
+
+let mapDayWithWageArray=employeeWageArray.map(mapDayWithWage);
+console.log("Mapping day with Wage earned on that day");
+console.log(mapDayWithWageArray) 
 let totalEmployeeWage=0;
 function totalWagesUsingForEach(dailyWage)
 {
