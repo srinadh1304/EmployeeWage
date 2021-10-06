@@ -46,6 +46,7 @@ function totalWagesUsingForEach(dailyWage)
 }
 employeeWageArray.forEach(totalWagesUsingForEach);
 console.log("total days: "+totalWorkingDays+" Employee hours: "+totalEmployeeHours+" Employee wage: "+totalEmployeeWage);
+
 function totalWagesUsingReduce(totalWage,dailyWage)
 {
     return totalWage+dailyWage;
@@ -74,3 +75,8 @@ function findFulltimeWage(dailyWage)
     return dailyWage.includes("160")
 }
 console.log("First full time wage was earned on Day: "+mapDayWithWageArray.find(findFulltimeWage))
+function isAllFullTimeWage(dailyWage)
+{
+    return dailyWage.includes("160")
+}
+console.log("Check if all element have Full time Wage: "+fullDayWageArray.every(isAllFullTimeWage))
