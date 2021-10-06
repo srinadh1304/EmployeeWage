@@ -40,14 +40,12 @@ let employeeWage=calculateDailyWages(totalEmployeeHours)
 console.log("total days: "+totalWorkingDays+" Employee hours: "+totalEmployeeHours+" Employee wage: "+employeeWage);
 
 let totalEmployeeWage=0;
-//Calculating daily wage using for each
 function totalWagesUsingForEach(dailyWage)
 {
     totalEmployeeWage+=dailyWage
 }
 employeeWageArray.forEach(totalWagesUsingForEach);
 console.log("total days: "+totalWorkingDays+" Employee hours: "+totalEmployeeHours+" Employee wage: "+totalEmployeeWage);
-
 function totalWagesUsingReduce(totalWage,dailyWage)
 {
     return totalWage+dailyWage;
@@ -71,3 +69,8 @@ function fulltimeWage(dailyWage)
 let fullDayWageArray=mapDayWithWageArray.filter(fulltimeWage);
 console.log("Daily wage filter when full time wage earned ")
 console.log(fullDayWageArray)
+function findFulltimeWage(dailyWage)
+{
+    return dailyWage.includes("160")
+}
+console.log("First full time wage was earned on Day: "+mapDayWithWageArray.find(findFulltimeWage))
