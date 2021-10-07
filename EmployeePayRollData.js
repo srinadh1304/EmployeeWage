@@ -36,7 +36,7 @@ class EmployeePayrollData
 
     set name(name) 
     {
-        let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}');
         if (nameRegex.test(name))
         {
             this._name = name;
@@ -117,11 +117,11 @@ class EmployeePayrollData
 
     try 
     {
-        let employeePayrollData = new EmployeePayrollData(1, "Mark", 20000, "M", new Date());
+        let employeePayrollData = new EmployeePayrollData(1, "Tarak", 10000, "M", new Date());
         console.log(employeePayrollData.toString());
-        employeePayrollData.name = "Jo";
+        employeePayrollData.name = "Ram";
         console.log(employeePayrollData.toString());
-        let newEmployeePayrollData = new EmployeePayrollData(1, "Terisa", 30000, "F", new Date());
+        let newEmployeePayrollData = new EmployeePayrollData(1, "Ramya", 20000, "F", new Date());
         console.log(newEmployeePayrollData.toString());
     }
     catch (e)
