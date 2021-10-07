@@ -94,6 +94,7 @@ function totalWagesUsingReduce(totalWage, employee)
 }
 console.log("\nEmployee wage with reduce:" + employeeDailyHoursAndWageArray.reduce(totalWagesUsingReduce, 0));
 
+
 let firstFullTimeWage=employeeDailyHoursAndWageArray
                      .find(dailyHoursAndWage=>dailyHoursAndWage.dailyWage==160)
                      .dayNumber;
