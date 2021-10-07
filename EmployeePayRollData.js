@@ -1,9 +1,5 @@
 class EmployeePayrollData
  {
-    id;
-    salary;
-    gender;
-    startDate;
 
     constructor(...params) 
     {
@@ -22,24 +18,34 @@ class EmployeePayrollData
 
     set id(id) 
     {
-        this._id = id;
+        
+        let idRegex =RegExp('^[1-9]\\d*$');
+        if (idRegex.test(id))
+        {
+            this._id = id;
+        }
+        else 
+        {
+            throw "id is Incorrect";
+        }
     }
     get name() 
     {
         return this._name;
     }
-    set name(name) {
+
+    set name(name) 
+    {
         let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
-        if (nameRegex.test(name)) 
+        if (nameRegex.test(name))
         {
             this._name = name;
         }
         else
-         {
-            throw "Name is Incorrect";
+        {
+            throw  "Name is Incorrect";
         }
     }
-
 
     get salary() 
     {
@@ -48,7 +54,15 @@ class EmployeePayrollData
 
     set salary(salary) 
     {
-        this._salary = salary;
+        let salaryRegex =RegExp('^[1-9]\\d*$');
+        if (salaryRegex.test(salary))
+        {
+            this._salary = salary;
+        }
+        else 
+        {
+            throw "salary is Incorrect";
+        }
     }
     get gender() 
     {
@@ -57,7 +71,15 @@ class EmployeePayrollData
 
     set gender(gender) 
     {
-        this._gender = gender;
+        let genderRegex = RegExp('^[M|F]$');
+        if (genderRegex.test(gender))
+        {
+            this._gender = gender;
+        }
+        else 
+        {
+            throw "Gender is Incorrect";
+        }
     }
     get startDate() 
     {
@@ -66,7 +88,17 @@ class EmployeePayrollData
 
     set startDate(startDate) 
     {
-        this._startDate = startDate;
+        var now = new Date();
+        if (!(startDate > now))
+        {
+            this._startDate = startDate;
+
+        }
+        else 
+        {
+            throw "date is Incorrect";
+        }
+            
     }
 
 
@@ -79,18 +111,21 @@ class EmployeePayrollData
             ",gender= " + this.gender + ",startDate= " + employeeDate;
     }
 }
-let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000);
-console.log(employeePayrollData.toString());
-try 
-{
-    employeePayrollData.name = "John";
-    console.log(employeePayrollData.toString());
 
-}
-catch (e) 
-{
-    console.error(e);
-}
-let newEmployeePayrollData = new EmployeePayrollData(1, "Terisa", 30000, "F", new Date());
-console.log(newEmployeePayrollData.toString());
 
+{
+
+    try 
+    {
+        let employeePayrollData = new EmployeePayrollData(1, "Mark", 20000, "M", new Date());
+        console.log(employeePayrollData.toString());
+        employeePayrollData.name = "Jo";
+        console.log(employeePayrollData.toString());
+        let newEmployeePayrollData = new EmployeePayrollData(1, "Terisa", 30000, "F", new Date());
+        console.log(newEmployeePayrollData.toString());
+    }
+    catch (e)
+    {
+        console.error(e);
+    }
+}
